@@ -15,7 +15,7 @@ c = random.sample(numbers,nr_numbers)
 
 new_list = a+b+c
 random.shuffle(new_list)
-print("Your password is:",)
+print("Your password is:")
 for i in new_list:
     print(i,end= "")
 
