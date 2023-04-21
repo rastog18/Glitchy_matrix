@@ -14,6 +14,7 @@ for i in range(len):
     display.append("_")
 
 # MAIN
+print("The word strucutre is",display)
 print(logo)
 chances_you_get = 6
 f = []
