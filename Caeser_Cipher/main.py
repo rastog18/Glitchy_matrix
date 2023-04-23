@@ -32,7 +32,7 @@ def ceaser():
 
 
 # MAIN
-from Caeser_Cipher_art import logo
+from art import logo
 print (logo)
 print("To run the coding machine enter 'run', else enter 'break'.")
 while True:
