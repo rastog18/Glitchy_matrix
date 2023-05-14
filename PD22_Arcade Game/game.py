@@ -16,9 +16,9 @@ def init():
     turtle.color("white")
     turtle.penup()
     turtle.goto(-150, 0)
-    turtle.write(arg="Pong Game", align="center", font=('Verdana', 60, 'normal'))
+    turtle.write(arg="Pong Game", align="center", font=('Courier', 60, 'normal'))
     turtle.goto(-150, -30)
-    turtle.write(arg="Created by Shivam Rastogi", align="center", font=('Verdana', 10, 'normal'))
+    turtle.write(arg="Created by Shivam Rastogi", align="center", font=('Courier', 10, 'normal'))
     time.sleep(1)
 
 
