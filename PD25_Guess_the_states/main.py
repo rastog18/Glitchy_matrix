@@ -1,7 +1,7 @@
 from turtle import Turtle, Screen, listen
 
 import pandas
-import pandas as pd
+
 
 cursor = Turtle()
 screen = Screen()
