@@ -6,6 +6,12 @@ dict = {value.letter:value.code for (key,value) in data.iterrows()}
 
 
 # TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-name = input("Enter a word:").upper()
-nato_list = [dict[item] for item in list(name)]
-print(nato_list)
+a = True
+while a:
+    name = input("Enter a word:").upper()
+    try:
+        nato_list = [dict[item] for item in list(name)]
+        print(nato_list)
+        a = False
+    except KeyError:
+        print("Sorry only letters in the alphabet please.")
