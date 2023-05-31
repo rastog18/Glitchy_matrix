@@ -37,10 +37,8 @@ radiobutton2.place(x=240, y=230)
 
 def take_info():
     password = init_pass.get()
-    print(password)
     if password == "WELHAM":
         purpose = radio_state.get()
-        print(purpose)
         if purpose == 1:
             password_adder()
         elif purpose == 2:
@@ -74,7 +72,6 @@ def password_reader():
                 website_label = Label(text=f"Website:{data[0]} | Email:{data[1]} | Password:{data[2]}")
                 website_label.grid(row=ROW, column=1, sticky=W)
                 ROW += 1
-                print()
             except EOFError:
                 a = False
 
@@ -111,16 +108,35 @@ def password_adder():
         a = website_input.get()
         b = email_input.get()
         c = password_input.get()
-        print(a, b, c)
-        # is_ok = messagebox.askokcancel(title="Password Writer",message=f"Website:{a}\nPassword:{c}\nDo you wish to proceed?")
-        # if is_ok:
-        with open("data.dat", "ab") as file:
-            data_list = [a, b, c]
-            print(data_list)
-            pickle.dump(data_list, file)
-        website_input.delete(0, END)
-        password_input.delete(0, END)
+        if a == "" or b == "" or c== "":
+            is_ok = messagebox.showinfo(title="Password Writer",
+                                        message="Fill all the entries.")
+        else:
+            is_ok = messagebox.showinfo(title="Password Writer",message=f"Website:{a}\nPassword:{c}\nDo you wish to proceed?")
+            if is_ok:
+                with open("data.dat", "ab") as file:
+                    data_list = [a, b, c]
+                    pickle.dump(data_list, file)
+                website_input.delete(0, END)
+                password_input.delete(0, END)
 
+    # ---------------------------- SEARCH PASSWORD ------------------------------- #
+    def search():
+        try:
+            website = website_input.get()
+            with open("data.dat","rb") as file:
+                a = True
+                while a:
+                    try:
+                        text = pickle.load(file)
+                        if text[0].upper() == website.upper():
+                            messagebox.showinfo(title="Password Writer",message=f"Email:{text[1]} \nPassword: {text[2]}")
+                            a = False
+                    except EOFError:
+                        messagebox.showinfo(title="Password Writer", message=f"No such Entry")
+                        a = False
+        except FileNotFoundError:
+            pass
     # ---------------------------- UI SETUP ------------------------------- #
 
     window = Tk()
@@ -128,7 +144,7 @@ def password_adder():
     window.title("Password Writer")
 
     img = PhotoImage(file="logo.png")
-    print(type(img))
+
     canvas = Canvas(width=200, height=200)
     canvas.create_image(130, 95, image=img)
     canvas.grid(row=1, column=2)
@@ -144,9 +160,9 @@ def password_adder():
     # Inputs
     password_input = Entry(width=22)
     password_input.grid(row=4, column=2, sticky=W)
-    website_input = Entry(width=40)
+    website_input = Entry(width=22)
     website_input.focus()
-    website_input.grid(row=2, column=2, columnspan=2, sticky=W)
+    website_input.grid(row=2, column=2, sticky=W)
     email_input = Entry(width=40)
     email_input.insert(0, "shivamrastogi605@gmail.com")
     email_input.grid(row=3, column=2, columnspan=2, sticky=W)
@@ -157,6 +173,8 @@ def password_adder():
     button1.grid(row=4, column=3)
     button2 = Button(text="Add", width=37, command=save)
     button2.grid(row=5, column=2, columnspan=2)
+    button3 = Button(text="Search", width=13,command=search)
+    button3.grid(row=2, column=3)
 
     window.mainloop()
 
