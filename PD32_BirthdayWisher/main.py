@@ -8,7 +8,7 @@ import pytz
 
 
 my_mail = "shivamrastogi605@gmail.com"
-my_pass = "hmpobwjwyrkvtots"
+my_pass = "_ _ _ _ _ _ _ _ _ _ _ _"
 
 # 2. Check if today matches a birthday in the birthdays.csv
 file = pandas.read_csv("birthdays.csv")
