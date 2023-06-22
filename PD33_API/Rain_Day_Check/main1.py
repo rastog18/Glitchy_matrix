@@ -1,11 +1,12 @@
+# The program does not contain sensitive data, such as API Key, number etc.
 import requests
 from twilio.rest import Client
 
 my_lat = 28.8333
 my_lon = 78.7833
-API_Key = "69f04e4613056b159c2761a9d9e664d2"
-account_sid = "AC363873931e368fc6327c5a0b7b3bb2fe"
-auth_token = "58e7665e1b376f3c0bc13010053084c7"
+API_Key = ""
+account_sid = ""
+auth_token = ""
 
 parameter = {"lat":my_lat,
              "lon":my_lon,
@@ -24,7 +25,7 @@ if min(values) <600:
             .create(
             body="Rainy Today",
             from_='+14847498096',
-            to='+917895873303'
+            to=''
         )
 else:
     client = Client(account_sid, auth_token)
@@ -32,5 +33,5 @@ else:
         .create(
         body="It is not going to rain, So you can continue with your favorite Family Guy.",
         from_='+14847498096',
-        to='+917895873303'
+        to=''
     )
