@@ -1,14 +1,15 @@
+# The program does not contain sensitive data, such as API Key, number etc.
 # --------------------------- Imports/ Variables ---------------------------#
 import requests
 from twilio.rest import Client
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-API_key_stock = "LH9HMGF5RHYDB88T"
-API_key_news = "afee0acb80f840acac91388669ebe89f"
-API_Key_twilio = "69f04e4613056b159c2761a9d9e664d2"
-account_sid = "AC363873931e368fc6327c5a0b7b3bb2fe"
-auth_token = "242bc3ecb549693c971dfb3c19f4992b"
+API_key_stock = ""
+API_key_news = ""
+API_Key_twilio = ""
+account_sid = ""
+auth_token = ""
 
 parameter_stocks = {"function": "TIME_SERIES_DAILY",
                     "symbol": STOCK,
@@ -47,7 +48,7 @@ if 5 <= percent_change <= -5:
             .create(
             body=f"TSLA: 🔺{percent_change}\nHeadline: {news1[0]}\nBrief: {news1[1]}\n\nHeadline: {news2[0]}\nBrief: {news2[1]}\n\nHeadline: {news2[0]}\nBrief: {news2[1]}",
             from_='+14847498096',
-            to='+917895873303'
+            to=''
         )
     else:
         client = Client(account_sid, auth_token)
@@ -55,7 +56,7 @@ if 5 <= percent_change <= -5:
             .create(
             body=f"TSLA: 🔺{percent_change}\nHeadline: {news1[0]}\nBrief: {news1[1]}\n\nHeadline: {news2[0]}\nBrief: {news2[1]}\n\nHeadline: {news2[0]}\nBrief: {news2[1]}",
             from_='+14847498096',
-            to='+917895873303'
+            to=''
         )
 else:
     client = Client(account_sid, auth_token)
@@ -63,7 +64,7 @@ else:
         .create(
         body="Your Stocks are consistent. Don't Worry.",
         from_='+14847498096',
-        to='+917895873303'
+        to=''
     )
 
 
