@@ -30,7 +30,7 @@ class FlightSearch:
             self.message = False
             price = self.dict[item]
             parameter = {"fly_from": "DEL",
-                         "fly_to": "CDG",
+                         "fly_to": item,
                          "date_from": self.clock_now,
                          "date_to": self.clock_then}
             response = requests.get(url=self.search_endpoint, headers=header, params=parameter).json()["data"]
