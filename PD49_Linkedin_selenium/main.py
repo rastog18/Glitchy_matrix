@@ -6,9 +6,9 @@ import time
 # ------------------------------- Variable and Constats ---------------------------------#
 
 linkedin_url = "https://www.linkedin.com/jobs/search/?currentJobId=3708954318&f_LF=f_AL&geoId=103336534&keywords=python%20developer&location=Indiana%2C%20United%20States&origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&refresh=true"
-linkedin_usr = "shivamrastogi605@gmail.com"
-linkedin_pass = "Welham@1"
-phone_number = 7655438153
+linkedin_usr = "*********"
+linkedin_pass = "*********"
+phone_number = 1234567890
 # ------------------------------- Selenium Setup ---------------------------------#
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach",True)
